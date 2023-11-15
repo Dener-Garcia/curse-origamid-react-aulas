@@ -32,7 +32,16 @@ const UseStateHook = () => {
     const handleAddData = () => {
         setStudentData({...studentData, curse: "React Origami"})
     }
+
+    const array1 = ['Alguma coisa ', 'Alguma coisa ', 'Alguma coisa '] 
     
+    // Atualizando um array de items com useState
+    const [arrayItems, setArrayItems] = useState(array1)
+
+
+    function handleaddItemArray() {
+        setArrayItems([...arrayItems, "Alguma coisa "])
+    }
 
     return(
         <>
@@ -60,6 +69,15 @@ const UseStateHook = () => {
             <p>{studentData.curse}</p>
 
             <button onClick={handleAddData}>Mostre o nome do curso</button>
+        </div>
+
+        <div className="array">
+            <p>Atualizando um array de itens</p>
+            <ul>
+                {arrayItems.map((item, i) => <li key={i ++}>{item + i}</li>)}
+            </ul>
+
+            <button onClick={handleaddItemArray}>click para adicionar um novo item</button>
         </div>
         </>
     )
