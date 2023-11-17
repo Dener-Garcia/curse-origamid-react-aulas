@@ -16,9 +16,7 @@ const ExerciceUseEffect = () => {
         localStorage.setItem("favorito", "notebook");
 }
 
-const getStorage = () => {
-    localStorage.getItem("favorito") ? setNameProduct(localStorage.getItem("favorito")) : setNameProduct("")
-}
+
     
 
     useEffect(() =>{
@@ -27,14 +25,11 @@ const getStorage = () => {
             .catch((err) => console.log(err, "falha na requisicao"))
     }, [nameProduct])
 
-    if (localStorage.getItem == "smartphone") {
-            console.log("foi note")
-            setNameProduct("smartphone")
-    }
-    if (localStorage.getItem == "notebook") {
-        console.log("foi note")
-        setNameProduct("notebook")
-}
+useEffect(() =>{
+    const productStoraged = localStorage.getItem("favorito") 
+    productStoraged ? setNameProduct(productStoraged) : console.log("nao tem mada local storage ")
+}, [] )
+
 
 
     return(
@@ -45,7 +40,8 @@ const getStorage = () => {
             <p>Deve-se ter uma preferência como valor padrão e salva-la no local storage</p>
         </div>
         <div className="result-exercice">
-            <span>Item favorito: {localStorage.getItem("favorito")} </span>
+            <span>Item favorito: <b>{localStorage.getItem("favorito")}</b> </span>
+            <p>Produto: {product.nome}</p>
             <span>Valor: R$ {product.preco} </span>
             <div className="buttons">
                 <button onClick={handleNotebook}>Notebook</button>
