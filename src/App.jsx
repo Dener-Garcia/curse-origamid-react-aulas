@@ -1,6 +1,9 @@
 
 import './App.css'
+import MyProvider from './context/Provider'
+import CustomHook from './hooks/CustomHooks/CustomHook'
 import UseContext from './hooks/UseContext/UseContext'
+import UseContext2 from './hooks/UseContext2/UseContext2'
 import ExerciceUseEffect from './hooks/UseEffect/ExerciceUseEffect'
 import UseEffect from './hooks/UseEffect/UseEffect'
 import UseMemo from './hooks/UseMemo/UseMemo'
@@ -24,7 +27,15 @@ function App() {
     <hr/>
     <UseMemo />
     <hr/>
+    <MyProvider>
     <UseContext />
+    <UseContext2/>
+    </MyProvider>
+    <hr/>
+    <CustomHook />
+
+
+    
     </>
   )
 }
